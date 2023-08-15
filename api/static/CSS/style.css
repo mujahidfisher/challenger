@@ -8,4 +8,6 @@
 
 body{
     text-align: center;
+    background-color: lightblue;
+    text-shadow: 10px 10px 10px;
 }

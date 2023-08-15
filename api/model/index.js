@@ -9,6 +9,5 @@ const BookAuthor = require("./booksAuthor")
 
 module.exports = {
     users: new Users(),
-    
-    
+    books: new Books()
 }
