@@ -6,7 +6,6 @@ const routes = express.Router();
 // Import all model's objects
 const { users, orders, books, BookAuthor } = require("../model");
 
-
 // BooksAuthor router
 routes.get("/BookAuthor", (req, res) => {
   BookAuthor.fetchBookAuthor(req, res);
@@ -69,20 +68,20 @@ routes.post("/login", bodyParser.json(), (req, res) => {
 
 // Orders router
 routes.get("/orders", (req, res) => {
-    orders.fetchOrders(req, res);
-  });
-  routes.get("/orders/:id", (req, res) => {
-    orders.fetchOrders(req, res);
-  });
-  routes.post("/addorder", bodyParser.json(), (req, res) => {
-    orders.register(req, res);
-  });
-  routes.put("/orders/:id", bodyParser.json(), (req, res) => {
-    orders.updateOrders(req, res);
-  });
-  routes.delete("/orders/:id", (req, res) => {
-    orders.deleteOrders(req, res);
-  });
+  orders.fetchOrders(req, res);
+});
+routes.get("/orders/:id", (req, res) => {
+  orders.fetchOrders(req, res);
+});
+routes.post("/addorder", bodyParser.json(), (req, res) => {
+  orders.register(req, res);
+});
+routes.put("/orders/:id", bodyParser.json(), (req, res) => {
+  orders.updateOrders(req, res);
+});
+routes.delete("/orders/:id", (req, res) => {
+  orders.deleteOrders(req, res);
+});
 
 module.exports = {
   express,
