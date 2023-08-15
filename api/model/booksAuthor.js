@@ -1,6 +1,6 @@
 // book authors
 
-const db = require("../config")
+const db = require("../config");
 class BookAuthor {
   fetchBookAuthor(req, res) {
     const query = `
