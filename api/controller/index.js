@@ -3,6 +3,7 @@
 const express = require("express");
 const bodyParser = require("body-parser");
 const routes = express.Router();
+const {verifyAToken} = require("../middleware/AuthenticateUser")
 // Import all model's objects
 const { users, orders, books, BookAuthor } = require("../model");
 
@@ -56,7 +57,7 @@ routes.get("/user/:id", (req, res) => {
 routes.post("/register", bodyParser.json(), (req, res) => {
   users.register(req, res);
 });
-routes.put("/user/:id", bodyParser.json(), (req, res) => {
+routes.patch("/user/:id", bodyParser.json(), (req, res) => {
   users.updateUser(req, res);
 });
 routes.delete("/user/:id", (req, res) => {
@@ -73,10 +74,10 @@ routes.get("/orders", (req, res) => {
 routes.get("/orders/:id", (req, res) => {
   orders.fetchOrders(req, res);
 });
-routes.post("/addorder", bodyParser.json(), (req, res) => {
-  orders.register(req, res);
+routes.post("/addOrder", bodyParser.json(), (req, res) => {
+  orders.addOrder(req, res);
 });
-routes.put("/orders/:id", bodyParser.json(), (req, res) => {
+routes.patch("/orders/:id", bodyParser.json(), (req, res) => {
   orders.updateOrders(req, res);
 });
 routes.delete("/orders/:id", (req, res) => {

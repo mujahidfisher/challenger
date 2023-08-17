@@ -40,9 +40,9 @@ class Users {
         gender, userDOB, emailAdd, userPass,
         profileUrl
         FROM Users
-        WHERE emailAdd = ${emailAdd};
+        WHERE emailAdd = ?;
         `;
-    db.query(query, async (err, result) => {
+    db.query(query, [emailAdd], (err, result) => {
       if (err) throw err;
       if (!result?.length) {
         res.json({
@@ -50,7 +50,7 @@ class Users {
           msg: "You provided a wrong email.",
         });
       } else {
-        await compare(userPass, result[0].userPass, (cErr, cResult) => {
+        compare(userPass, result[0].userPass, (cErr, cResult) => {
           if (cErr) throw cErr;
           // Create a token
           const token = createToken({
@@ -81,7 +81,7 @@ class Users {
   async register(req, res) {
     const data = req.body;
     // Encrypt the password
-    data.userPass = hash(data.userPass, 15);
+    data.userPass = await hash(data.userPass, 15);
     // Payload
     const user = {
       emailAdd: data.emailAdd,
@@ -107,6 +107,10 @@ class Users {
     });
   }
   updateUser(req, res) {
+    const data = req.body;
+    if (data.userPass) {
+      data.userPass = hashSync(data.userPass, 15);
+    }
     const query = `
         UPDATE Users
         SET ?
