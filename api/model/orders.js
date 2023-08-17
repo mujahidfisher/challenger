@@ -30,7 +30,7 @@ class Orders {
       });
     });
   }
-  register(req, res) {
+  addOrder(req, res) {
     const data = req.body;
     // Query
     const query = `
