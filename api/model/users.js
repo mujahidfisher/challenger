@@ -58,10 +58,6 @@ class Users {
             userPass,
           });
           // Save a token
-          res.cookie("LegitUser", token, {
-            maxAge: 3600000,
-            httpOnly: true,
-          });
           if (cResult) {
             res.json({
               msg: "Logged in",
@@ -96,13 +92,10 @@ class Users {
       if (err) throw err;
       // create token
       let token = createToken(user);
-      res.cookie("LegitUser", token, {
-        maxAge: 3600000,
-        httpOnly: true,
-      });
       res.json({
         status: res.statusCode,
-        msg: "You are now registered.",
+        token,
+        msg: "You are now registered.", 
       });
     });
   }
