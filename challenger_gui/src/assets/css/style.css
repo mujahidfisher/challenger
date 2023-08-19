@@ -1,0 +1,89 @@
+@import url("https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css");
+
+*,
+*::after,
+*::before {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+*::-webkit-scrollbar {
+    display: none;
+}
+/* =======App Css========= */
+
+#app {
+    font-family: Avenir, Helvetica, Arial, sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-align: center;
+    color: whitesmoke;
+  }
+  
+  nav {
+    padding: 30px;
+  }
+  
+  nav a {
+    font-weight: bold;
+    color: #2c3e50;
+  }
+  
+  nav a.router-link-exact-active {
+    color: #42b983;
+  }
+
+body{
+    text-align: center;
+    background-image: url("https://i.postimg.cc/CLTXjJs5/57fd02f833f0c5b906f5032b0f2314dc.jpg");
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: 100% 100%;
+}
+
+.logo {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    border: 3px orange solid;
+}
+
+.footer {
+    bottom: 0;
+    background-color: rgba(41, 41, 41, 0.5);
+    color: whitesmoke;
+    padding: 10px;
+}
+
+.navbar {
+    background-color: rgba(41, 41, 41, 0.497) !important;
+}
+
+.nav-link {
+    color: whitesmoke !important;
+    margin-left: 20px;
+    transition: all 0.2s ease-in-out;
+}
+
+.nav-link:hover {
+    color: black !important;
+    background-color: whitesmoke;
+    border-radius: 20px;
+    transform: scale(1.1);
+}
+
+
+nav a.router-link-exact-active {
+    color: orange !important;
+}
+
+.login {
+    width: 40px;
+    height: 40px;
+}
+
+.card {
+    padding: 10px;
+    margin: 20px;
+}
